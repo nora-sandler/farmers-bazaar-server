@@ -6,8 +6,9 @@ const helmet = require('helmet')
 const {
     NODE_ENV
 } = require('./config')
-const errorHandler = require('./middleware/error-handler')
-const pancakeRouter = require('./pancake/pancake-router')
+const errorHandler = require('./middlerware/error-handler')
+const usersRouter = require('./users/users-router')
+const authRouter = require("./auth/auth-router");
 
 const app = express()
 
@@ -21,9 +22,13 @@ app.use(morgan(morganOption, {
 app.use(cors())
 app.use(helmet())
 
-app.use(express.static('public'))
+// app.use(express.static('public'))
 
-app.use('/api/pancakes', pancakeRouter)
+//Load user login router
+app.use("/api/auth", authRouter);
+//Load user registration router
+app.use("/api/users", usersRouter);
+
 app.use(errorHandler)
 
 module.exports = app
