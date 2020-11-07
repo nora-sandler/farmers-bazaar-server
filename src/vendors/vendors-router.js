@@ -9,8 +9,8 @@ const jsonParser = express.json();
 const serializeimp_vendors = (imp_vendors) => ({
   id: imp_vendors.id,
   user_id: imp_vendors.user_id,
-  name: imp_vendors.name,
-  description: imp_vendors.description,
+  name: xss(imp_vendors.name),
+  description: xss(imp_vendors.description),
   streetaddress: xss(imp_vendors.streetaddress),
   city: xss(imp_vendors.city),
   state: xss(imp_vendors.state),
@@ -18,10 +18,6 @@ const serializeimp_vendors = (imp_vendors) => ({
   phone: xss(imp_vendors.phone),
   email: xss(imp_vendors.email),
   hoursofbusiness: xss(imp_vendors.hoursofbusiness),
-  itemcount: xss(imp_vendors.itemcount),
-  itemprice: xss(imp_vendors.itemprice),
-  img: xss(imp_vendors.img),
-  date_created: xss(imp_vendors.date_created),
 });
 
 
@@ -47,10 +43,6 @@ vendorsRouter
       phone,
       email,
       hoursofbusiness,
-      itemcount,
-      itemprice,
-      img,
-      date_created,
     } = req.body;
 
     const newVendor = {
@@ -64,10 +56,6 @@ vendorsRouter
       phone,
       email,
       hoursofbusiness,
-      itemcount,
-      itemprice,
-      img,
-      date_created,
     };
 
     for (const [key, value] of Object.entries(newVendor))
@@ -134,11 +122,7 @@ vendorsRouter
       zip,
       phone,
       email,
-      hoursofbusiness,
-      itemcount,
-      itemprice,
-      img,
-      date_created } = req.body;
+      hoursofbusiness} = req.body;
 
     const vendorToUpdate = {
       user_id,
@@ -150,11 +134,7 @@ vendorsRouter
       zip,
       phone,
       email,
-      hoursofbusiness,
-      itemcount,
-      itemprice,
-      img,
-      date_created
+      hoursofbusiness
     };
     console.log(vendorToUpdate,"hello")
 
@@ -162,7 +142,7 @@ vendorsRouter
     if (numberOfValues === 0) {
       return res.status(400).json({
         error: {
-          message: `Missing 'name', 'description', 'streetaddress', 'state','zip', 'phone', 'email', 'hoursofbusiness', 'itemCount', 'itemPric, 'img', date_created'`
+          message: `Missing 'name', 'description', 'streetaddress', 'state','zip', 'phone', 'email', 'hoursofbusiness'`
         }
       })
     }

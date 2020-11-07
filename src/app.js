@@ -10,6 +10,7 @@ const errorHandler = require('./middlerware/error-handler')
 const usersRouter = require('./users/users-router')
 const authRouter = require("./auth/auth-router");
 const vendorsRouter = require("./vendors/vendors-router");
+const itemsRouter = require("./items/items-router");
 
 
 const app = express()
@@ -31,6 +32,7 @@ app.use("/api/auth", authRouter);
 //Load user registration router
 app.use("/api/users", usersRouter);
 app.use("/api/vendors", vendorsRouter);
+app.use("/api/items", itemsRouter);
 
 app.use(errorHandler)
 
