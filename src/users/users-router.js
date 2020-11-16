@@ -64,11 +64,17 @@ usersRouter
                                     // .location(path.posix.join(req.originalUrl, `/${user.id}`))
                                     .json(UsersService.serializeUser(user))
                             })
-                            .catch(next)
+                            .catch(error => {
+                                console.log('insert user',error)
+                            })
                     })
-                    .catch(next)
+                    .catch(error => {
+                        console.log('hash password',error)
+                    })
             })
-            .catch(next)
+            .catch(error => {
+                console.log('duplicated username',error)
+            })
     })
 
 // Individual users by id
