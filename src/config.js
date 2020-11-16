@@ -5,3 +5,4 @@ module.exports = {
     JWT_SECRET: process.env.JWT_SECRET || 'change-this-secret',
     CLIENT_ORIGIN: '*'
 }
+
