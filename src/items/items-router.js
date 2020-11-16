@@ -8,7 +8,7 @@ const jsonParser = express.json();
 
 const serializeItems = (items) => ({
   id: items.id,
-  imp_vendors_id: items.imp_vendors_id,
+  vendors_id: items.vendors_id,
   name: xss(items.name),
   description: xss(items.description),
   itemcount: xss(items.itemcount),
@@ -31,7 +31,7 @@ itemsRouter
 
   .post(jsonParser, (req, res, next) => {
     const {
-      imp_vendors_id,
+      vendors_id,
       name,
       description,
       itemcount,
@@ -41,7 +41,7 @@ itemsRouter
     } = req.body;
 
     const newItem = {
-      imp_vendors_id,
+      vendors_id,
       name,
       description,
       itemcount,
@@ -105,7 +105,7 @@ itemsRouter
 
   .patch(jsonParser, (req, res, next) => {
     const {
-      imp_vendors_id,
+      vendors_id,
       name,
       description,
       itemcount,
@@ -114,7 +114,7 @@ itemsRouter
       date_created } = req.body;
 
     const itemToUpdate = {
-      imp_vendors_id,
+      vendors_id,
       name,
       description,
       itemcount,
