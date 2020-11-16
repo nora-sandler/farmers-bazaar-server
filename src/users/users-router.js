@@ -20,7 +20,7 @@ usersRouter
     .post(jsonBodyParser, (req, res, next) => {
         const { user_name, password } = req.body
 
-        console.log("user_name:", user_name, "password:", password);
+        console.log("user_name:", user_name, "password-->", password,'<---');
 
         for (const field of ['user_name', 'password'])
             if (!req.body[field])
@@ -45,7 +45,7 @@ usersRouter
                 if (hasUserWithUserName)
                     return res.status(400).json({ error: `Username already taken` })
 
-                return UsersService.hashPassword(password)
+                return UsersService.hashPassword(password.trim())
                     .then(hashedPassword => {
                         console.log("hashedpassword",hashedPassword);
                         const newUser = {
@@ -60,7 +60,7 @@ usersRouter
                                 console.log("user:", user)
                                 res
                                     .status(201)
-                                    .location(path.posix.join(req.originalUrl, `/${user.id}`))
+                                    // .location(path.posix.join(req.originalUrl, `/${user.id}`))
                                     .json(UsersService.serializeUser(user))
                             })
                     })
