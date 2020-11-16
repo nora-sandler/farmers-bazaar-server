@@ -1,43 +1,43 @@
 const VendorsService = {
   getAllVendors(db) {
     return db
-      .from('imp_vendors')
+      .from('vendors')
       .select('*')
   },
-  getVendorsById(db, imp_vendors_id) {
-    console.log("imp_vendors_id",imp_vendors_id)
+  getVendorsById(db, vendors_id) {
+    console.log("vendors_id",vendors_id)
     return db
-      .from('imp_vendors')
+      .from('vendors')
       .select('*')
       .where({
-        id: imp_vendors_id
+        id: vendors_id
       })
       // .first()
   },
   insertVendors(db, newVendor) {
     return db
       .insert(newVendor)
-      .into('imp_vendors')
+      .into('vendors')
       .returning('*')
       .then(rows => {
         return rows[0];
       });
   },
 
-  deleteVendorById(db, imp_vendors_id) {
-    return db('imp_vendors')
+  deleteVendorById(db, vendors_id) {
+    return db('vendors')
       .where({
-        id: imp_vendors_id
+        id: vendors_id
       })
       .delete()
   },
 
-  updateVendorById(db, imp_vendors_id, newVendor) {
-    console.log(imp_vendors_id, newVendor,"hi")
-    return db('imp_vendors')
+  updateVendorById(db, vendors_id, newVendor) {
+    console.log(vendors_id, newVendor,"hi")
+    return db('vendors')
       .update(newVendor, returning = true)
       .where({
-        id: imp_vendors_id
+        id: vendors_id
       })
       .returning('*')
       .then(rows => {
