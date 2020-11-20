@@ -10,17 +10,24 @@ usersRouter
     .route('/')
     .get((req, res, next) => {
         UsersService.getAllUsers(req.app.get('db'))
-        .then(user => {
-            console.log('User:', user)
-            res.json(user)
-        })
-        .catch(next)
+            .then(user => {
+                console.log('User:', user)
+                res.json(user)
+            })
+            .catch(next)
     })
     //register new user
     .post(jsonBodyParser, (req, res, next) => {
-        const { user_name, password } = req.body
+        const {
+            user_name,
+            password,
+            farm_name,
+            street_address,
+            city,
+            state,
+            zip } = req.body
 
-        console.log("user_name:", user_name, "password-->", password,'<---');
+        console.log("user_name:", user_name, "password-->", password, '<---');
 
         for (const field of ['user_name', 'password'])
             if (!req.body[field])
@@ -29,7 +36,7 @@ usersRouter
                 })
         const passwordError = UsersService.validatePassword(password.trim())
 
-        console.log("password error:",passwordError);
+        console.log("password error:", passwordError);
 
         if (passwordError)
             return res.status(400).json({ error: passwordError })
@@ -47,12 +54,17 @@ usersRouter
 
                 return UsersService.hashPassword(password.trim())
                     .then(hashedPassword => {
-                        console.log("hashedpassword",hashedPassword);
+                        console.log("hashedpassword", hashedPassword);
                         const newUser = {
                             user_name,
                             password: hashedPassword,
+                            farm_name,
+                            street_address,
+                            city,
+                            state,
+                            zip
                         }
-                        console.log(newUser,'new user payload')
+                        console.log(newUser, 'new user payload')
                         return UsersService.insertUser(
                             req.app.get('db'),
                             newUser
@@ -65,15 +77,15 @@ usersRouter
                                     .json(UsersService.serializeUser(user))
                             })
                             .catch(error => {
-                                console.log('insert user',error)
+                                console.log('insert user', error)
                             })
                     })
                     .catch(error => {
-                        console.log('hash password',error)
+                        console.log('hash password', error)
                     })
             })
             .catch(error => {
-                console.log('duplicated username',error)
+                console.log('duplicated username', error)
             })
     })
 

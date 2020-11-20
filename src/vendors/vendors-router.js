@@ -34,15 +34,12 @@ vendorsRouter
   .post(jsonParser, (req, res, next) => {
     const {
       user_id,
-      name,
-      description,
+      farm_name,
       streetaddress,
       city,
       state,
       zip,
-      phone,
-      email,
-      hoursofbusiness,
+      
     } = req.body;
 
     const newVendor = {
