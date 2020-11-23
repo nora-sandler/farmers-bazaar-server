@@ -74,8 +74,12 @@ itemsRouter
 itemsRouter
   .route('/:item_id')
   .all((req, res, next) => {
+    // const { user_id } = req.params;
+    //     UsersService.getById(req.app.get('db'), user_id)
+    const { items_id } = req.params;
     itemsService.getItemsById(req.app.get('db'), req.params.item_id)
       .then(items => {
+        console.log(items,'farmer')
         if (!items) {
           return res.status(404).json({
             error: { message: `Item doesn't exist` },
