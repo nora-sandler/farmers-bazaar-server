@@ -12,7 +12,7 @@ const ItemsService = {
       .where({
         id: items_id
       })
-      // .first()
+      .first()
   },
   insertItems(db, newItem) {
     return db
