@@ -151,4 +151,27 @@ itemsRouter
 
   })
 
+  itemsRouter
+  .route('/user/:user_id')
+  .all((req, res, next) => {
+    const { user_id } = req.params;
+    itemsService.getItemsByUserId(req.app.get('db'), req.params.user_id)
+      .then(items => {
+        if (!items) {
+          return res.status(404).json({
+            error: { message: `Item doesn't exist` },
+          });
+        }
+        res.items = items; // save the item for the next middleware
+        next(); // don't forget to call next so the next middleware happens!
+      })
+      .catch(next);
+  })
+
+  .get((req, res, next) => {
+    res.json(res.items);
+  })
+
+
+
 module.exports = itemsRouter;

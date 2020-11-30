@@ -5,7 +5,7 @@ const ItemsService = {
       .select('*')
   },
   getItemsById(db, items_id) {
-    console.log("items_id",items_id)
+
     return db
       .from('items')
       .select('*')
@@ -14,6 +14,16 @@ const ItemsService = {
       })
       .first()
   },
+  getItemsByUserId(db, user_id) {
+
+    return db
+      .from('items')
+      .select('*')
+      .where({
+        user_id: user_id
+      })
+  },
+
   insertItems(db, newItem) {
     return db
       .insert(newItem)
