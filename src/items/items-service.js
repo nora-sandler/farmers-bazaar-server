@@ -14,13 +14,13 @@ const ItemsService = {
       })
       .first()
   },
-  getItemsByUserId(db, user_id) {
+  getItemsByUserId(db, users_id) {
 
     return db
       .from('items')
       .select('*')
       .where({
-        user_id: user_id
+        users_id: users_id
       })
   },
 
