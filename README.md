@@ -3,7 +3,7 @@ For people who are following diets restrictions and need new ideas on recipes.
 Farmer's bazaar is created for farmers who want to sell fresh products to local shoppers. 
 
 ## Working Prototype 
-(Example) You can access a working prototype of the React app here: https://diet-meal-planner.vercel.app/ and Node app here: https://farmers-bazaar-api.herokuapp.com/api
+ You can access a working prototype of the React app here: https://new-farmers-bazaar-client-kd8rla6pb.vercel.app/ and Node app here: https://farmers-bazaar-api.herokuapp.com/api
 
 
 ## User Stories 
@@ -41,24 +41,6 @@ This app is for two types of users: a visitor and a logged-in user
 * I want to see all items I have added into the inventrory of the items.
 * So I can manage them in my account.
 
-
-
-
-### Wireframes 
-(Example) Landing Page
-:-------------------------:
-![Landing Page](/github-images/wireframes/landing_page.jpg)
-Sign up Page 
-![Register Page](/github-images/wireframes/sign_up_page.jpg)
-Login Page
-![Login Page](/github-images/wireframes/sign_up_page.jpg)
-How it works 1 Page
-![Add Items Page](/github-images/wireframes/how_it_works_1.jpg)
-Add Items Page
-![Item Details Page](/github-images/wireframes/how_it_works_2.jpg)
-Item Details Page
-![Items Inventory Page](/github-images/wireframes/how_it_works_3.jpg)
-Items Inventory Page
 
 
 
