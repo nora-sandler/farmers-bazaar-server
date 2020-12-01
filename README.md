@@ -67,15 +67,15 @@ Landing Page
 :-------------------------:
 ![Landing Page](/github-images/screenshots/Landing_page.png)
 Register Page
-![Register Page](/github-images/screenshots/Signup.png)
+![Register Page](/github-images/screenshots/registration_page.png)
 Login Page
-![Login Page](/github-images/screenshots/Login.png)
-Recipes list Page
-![Add Items Page](/github-images/screenshots/Recipes.png)
-Recipe details Page
-![Item Details Page](/github-images/screenshots/Recipe_details.png)
-Added recipes Page
-![Items Inventory Page](/github-images/screenshots/Added_recipes.png)
+![Login Page](/github-images/screenshots/Login_page.png)
+Add Items Page
+![Add Items Page](/github-images/screenshots/AddItem_page.png)
+Items Inventory Page
+![Item Details Page](/github-images/screenshots/Inventory_page.png)
+Item Details Page
+![Item Details Page](/github-images/screenshots/ItemDetails.png)
 
 
 
