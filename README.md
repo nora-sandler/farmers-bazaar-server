@@ -1,3 +1,112 @@
+# Farmers Bazaar  
+For people who are following diets restrictions and need new ideas on recipes.
+Farmer's bazaar is created for farmers who want to sell fresh products to local shoppers. 
+
+## Working Prototype 
+(Example) You can access a working prototype of the React app here: https://diet-meal-planner.vercel.app/ and Node app here: https://farmers-bazaar-api.herokuapp.com/api
+
+
+## User Stories 
+This app is for two types of users: a visitor and a logged-in user
+
+#### Landing Page
+* As a visitor
+* I want to understand what I can do with this app (or sign up, or log in)
+* so I can decide if I want to use it
+
+
+### Register page
+* As visitor 
+* I want to register to the web site 
+* So that I can use it.
+
+### Login page
+* As a registered user 
+* I want to login to the web site 
+* So that I can use it.
+
+### Add items page
+* As a registered user 
+* I want to add new items(products) into my inventory list, delete items from the list and update the items in the list.
+* So I can decide if I want to register.
+
+
+### Item details page
+* As a registered user
+* I want to see details of the items including name, quantity, price.
+* So I can manage them in my account.
+
+### Item inventory page
+* As a registered user
+* I want to see all items I have added into the inventrory of the items.
+* So I can manage them in my account.
+
+
+
+
+### Wireframes 
+(Example) Landing Page
+:-------------------------:
+![Landing Page](/github-images/wireframes/landing_page.jpg)
+Sign up Page 
+![Register Page](/github-images/wireframes/sign_up_page.jpg)
+Login Page
+![Login Page](/github-images/wireframes/sign_up_page.jpg)
+How it works 1 Page
+![Add Items Page](/github-images/wireframes/how_it_works_1.jpg)
+Add Items Page
+![Item Details Page](/github-images/wireframes/how_it_works_2.jpg)
+Item Details Page
+![Items Inventory Page](/github-images/wireframes/how_it_works_3.jpg)
+Items Inventory Page
+
+
+
+## Screenshots 
+Landing Page
+:-------------------------:
+![Landing Page](/github-images/screenshots/Landing_page.png)
+Register Page
+![Register Page](/github-images/screenshots/Signup.png)
+Login Page
+![Login Page](/github-images/screenshots/Login.png)
+Recipes list Page
+![Add Items Page](/github-images/screenshots/Recipes.png)
+Recipe details Page
+![Item Details Page](/github-images/screenshots/Recipe_details.png)
+Added recipes Page
+![Items Inventory Page](/github-images/screenshots/Added_recipes.png)
+
+
+
+## Functionality 
+The app's functionality includes:
+* Every User has the ability to create an account
+* Every User has the ability to login into the account
+* Every User has the ability to add items
+* Every User has the ability to save items in the inventory list
+* Every User has the ability to see all added items
+
+
+## Technology 
+* Front-End: HTML5, CSS3, JavaScript ES6, React
+* Back-End: Node.js, Express.js, Mocha, Chai, RESTful API Endpoints, Postgres
+* Development Environment: Heroku, DBeaver
+
+
+## Front-end Structure - React Components Map 
+*  __Index.js__ 
+    * __App.js__ 
+        * __LandingPage.js__ 
+            * __Login.js__ 
+            * __Register.js__ 
+            * __NavBar.js__ 
+            * __Footer.js__ 
+        * __AddItems.js__
+        * __ItemDetails.js__
+        * __Inventory.js__
+
+
 ## Back-end Structure - Business Objects 
 * Users (database table)
     * id (auto-generated)
