@@ -107,7 +107,7 @@ usersRouter
             .catch(next)
     })
     .get((req, res) => {
-        res.json(UsersService.serializeUser(res.user))
+        res.json(res.user)
     })
     .delete((req, res, next) => {
         const { user_id } = req.params;
