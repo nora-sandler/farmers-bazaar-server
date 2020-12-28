@@ -172,6 +172,28 @@ itemsRouter
     res.json(res.items);
   })
 
+  itemsRouter
+  .route('/keyword/:searchTerm')
+  .all((req, res, next) => {
+    const { searchTerm } = req.params;
+    itemsService.getItemsByItemsByKeyword(req.app.get('db'), req.params.searchTerm)
+      .then(items => {
+        if (!items) {
+          return res.status(404).json({
+            error: { message: `Item doesn't exist` },
+          });
+        }
+        res.items = items; // save the item for the next middleware
+        next(); // don't forget to call next so the next middleware happens!
+      })
+      .catch(next);
+  })
+
+  .get((req, res, next) => {
+    res.json(res.items);
+  })
+
+
 
 
 module.exports = itemsRouter;

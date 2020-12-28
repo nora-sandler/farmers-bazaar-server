@@ -23,6 +23,19 @@ const ItemsService = {
         users_id: users_id
       })
   },
+  getItemsByItemsByKeyword(db, keyword) {
+
+    return db
+      .from('items')
+      .select('*')
+      // .where({
+      //   "name": keyword
+      // })
+      .where('name', 'like', `%${keyword}%`)
+  },
+  
+
+
 
   insertItems(db, newItem) {
     return db
