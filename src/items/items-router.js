@@ -176,7 +176,7 @@ itemsRouter
   .route('/keyword/:searchTerm')
   .all((req, res, next) => {
     const { searchTerm } = req.params;
-    itemsService.getItemsByItemsByKeyword(req.app.get('db'), req.params.searchTerm)
+    itemsService.getItemsByItemsByKeyword(req.app.get('db'), searchTerm.toLowerCase())
       .then(items => {
         if (!items) {
           return res.status(404).json({
