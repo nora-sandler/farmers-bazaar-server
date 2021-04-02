@@ -2,6 +2,9 @@
   "name": "farmer-bazaar-server",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "13.12.0"
+  },
   "main": "server.js",
   "scripts": {
     "test": "mocha --require test/setup.js --watch",
