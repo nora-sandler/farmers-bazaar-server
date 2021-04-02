@@ -5,7 +5,7 @@ module.exports = {
 
     //'postgresql://postgres@localhost/farmers-bazaar',
     JWT_SECRET: process.env.JWT_SECRET || 'change-this-secret',
-    CLIENT_ORIGIN: '*'
+    CLIENT_ORIGIN: '*',
     PGSSLMODE: "require"
 }
 
